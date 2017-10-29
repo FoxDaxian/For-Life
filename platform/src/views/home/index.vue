@@ -1,23 +1,32 @@
 <style lang="scss" scoped>
-
+	@import "./index.scss";
 </style>
 
 <template>
 	<div class="wrap">
-		<el-button>默认按钮</el-button>
-		<el-button type="primary">主要按钮</el-button>
-		<el-button type="success">成功按钮</el-button>
-		<el-button type="info">信息按钮</el-button>
-		<el-button type="warning">警告按钮</el-button>
-		<el-button type="danger">危险按钮</el-button>
+		<h2>自由，公开，安全是唯一准则，欢迎来到freedom-soho。</h2>
+		<el-carousel :interval="4000" type="card" height="200px">
+			<el-carousel-item v-for="item in 6" :key="item">
+				<h3>{{ item }}</h3>
+			</el-carousel-item>
+		</el-carousel>
+		<p class="areaPart">所有专区</p>
+		<area-view :areaName="'设计'"></area-view>
+		<area-view :areaName="'策划'"></area-view>
+		<area-view :areaName="'编程'"></area-view>
+		<area-view :areaName="'文案'"></area-view>
 	</div>
 </template>
 
 <script>
+import areaView from '@/components/areaView'
+
 export default {
 
 	name: 'home',
-
+	components: {
+		areaView
+	},
 	data () {
 		return {
 

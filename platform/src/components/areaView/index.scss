@@ -1,0 +1,43 @@
+.wrap{
+	margin-top: 20px;
+	margin-bottom: 50px;
+	box-sizing: border-box;
+	border-bottom: 5px solid #000;
+	.areaTop{
+		&:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+	}
+	.selectRate{
+		float: right;
+	}
+	.title{
+		display: inline-block;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 8px 0;
+		border-bottom: 2px solid rgba(#000, .3);
+	}
+	.el-row, .el-col{
+		height: 100%;
+	}
+	.content{
+		margin-top: 10px;
+		background-color: rgba(#409EFF, .5);
+		height: 500px;
+		box-sizing: border-box;
+		padding: 10px;
+		.recommendTitle, .topTitle{
+			font-size: 16px;
+		}
+		.topPart{
+			box-sizing: border-box;
+			border-left: 1px solid rgba(#000, .5);
+		}
+	}
+}
+.cb{
+	clear: both;
+}

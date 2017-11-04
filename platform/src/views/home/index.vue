@@ -11,15 +11,13 @@
 			</el-carousel-item>
 		</el-carousel>
 		<p class="areaPart">所有专区</p>
-		<area-view :areaName="'设计'"></area-view>
-		<area-view :areaName="'策划'"></area-view>
-		<area-view :areaName="'编程'"></area-view>
-		<area-view :areaName="'文案'"></area-view>
+		<!-- 别忘了 bind key -->
+		<area-view v-for="(data, index) in areaDatas" :data="data" :key="index"></area-view>
 	</div>
 </template>
 
 <script>
-import areaView from '@/components/areaView'
+import areaView from '@/components/area-view'
 
 export default {
 
@@ -29,7 +27,19 @@ export default {
 	},
 	data () {
 		return {
-
+			areaDatas: [{
+				name: '设计',
+				enName: 'design'
+			}, {
+				name: '策划',
+				enName: 'plan'
+			}, {
+				name: '编程',
+				enName: 'programming'
+			}, {
+				name: '文案',
+				enName: 'copy-writing'
+			}]
 		}
 	}
 }

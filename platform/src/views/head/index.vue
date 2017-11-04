@@ -6,7 +6,7 @@
 	<div class="wrap">
 		<el-row type="flex" class="row-bg">
 			<el-col :span="6" class="logo">
-				<img src="/platform/static/logo.jpg" alt="logo">
+				<img :src="`${ baseUrl }static/logo.jpg`" alt="logo" @click="jumpHome">
 				<p>教程</p>
 				<p>案例</p>
 				<p>关于我们</p>
@@ -17,7 +17,7 @@
 			</el-col>
 			<el-col :span="8" :offset="10" class="panel" v-else>
 				<div class="avatorContent">
-					<img src="/platform/static/logo.jpg" alt="avator">
+					<img :src="`${ baseUrl }static/logo.jpg`" alt="avator">
 					<div class="userRest">
 						<p class="userName">freedom-SOHO</p>
 						<p class="level">
@@ -37,7 +37,7 @@
 								<i class="el-icon-sort" :class="{orders: user.canOrders}"></i>
 								<label>接单状态</label>
 							</span>
-							<span class="toProfile">
+							<span class="toProfile" @click="jumpProfile">
 								<i class="el-icon-tickets"></i>
 								<label>个人中心</label>
 							</span>
@@ -67,11 +67,24 @@ export default {
 
 	data () {
 		return {
+			baseUrl: baseUrl,
 			user: {
 				isLogin: false,
 				rate: 4.5,
 				canOrders: true
 			}
+		}
+	},
+	methods: {
+		jumpHome () {
+			this.$router.push({
+				name: 'home'
+			})
+		},
+		jumpProfile () {
+			this.$router.push({
+				path: `${ baseUrl }profile/relyToUserType`
+			})
 		}
 	}
 }

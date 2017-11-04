@@ -1,0 +1,30 @@
+.wrap{
+	width: 1024px;
+	box-sizing: border-box;
+	padding: 50px 0;
+	margin: 0 auto;
+	.head{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.name{
+		font-size: 20px;
+	}
+	.content{
+		// 解决flex布局，justify-content 最后一样的问题： #http://www.jianshu.com/p/c99155c9806a
+		background-color: rgba(64, 158, 255, 0.5);
+		margin: 50px 0;
+		box-sizing: border-box;
+		padding: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		.supplier{
+			// 可覆盖
+			// width: 340px;
+		}
+	}
+	.pagination{
+		text-align: center;
+	}
+}

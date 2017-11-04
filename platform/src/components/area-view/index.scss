@@ -15,10 +15,21 @@
 	}
 	.title{
 		display: inline-block;
-		font-size: 18px;
-		font-weight: bold;
-		padding: 8px 0;
-		border-bottom: 2px solid rgba(#000, .3);
+		font-size: 0;
+		.areaName{
+			border-bottom: 2px solid rgba(#000, .3);
+			font-size: 18px;
+			font-weight: bold;
+			padding: 8px 0;
+		}
+		.more{
+			font-size: 14px;
+			color: rgba(#409EFF, .8);
+			margin-left: 20px;
+			animation: more_ani 2s infinite;
+			display: inline-block;
+			cursor: pointer;
+		}
 	}
 	.el-row, .el-col{
 		height: 100%;
@@ -40,4 +51,10 @@
 }
 .cb{
 	clear: both;
+}
+@keyframes more_ani {
+	50% {
+		transform: scale(1.1);
+		color: #409EFF;
+	}
 }

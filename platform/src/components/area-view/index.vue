@@ -5,7 +5,10 @@
 <template>
 	<div class="wrap">
 		<div class="areaTop">
-			<div class="title">{{areaName}}专区</div>
+			<div class="title">
+				<span class="areaName" v-text="`${ data.name }专区`"></span>
+				<span class="more" v-text="'MORE'" @click="jump"></span>
+			</div>
 			<div class="selectRate">
 				<el-select @change="change" v-model="selectText" clearable placeholder="请选择">
 					<el-option
@@ -20,10 +23,10 @@
 		<div class="content">
 			<el-row :gutter="20">
 				<el-col :span="16">
-					<p class="recommendTitle">推荐服务商</p>
+					<p class="recommendTitle" v-text="'推荐服务商'"></p>
 				</el-col>
 				<el-col :span="8" class="topPart">
-					<p class="topTitle">服务商Top10</p>
+					<p class="topTitle" v-text="'服务商Top10'"></p>
 				</el-col>
 			</el-row>
 		</div>
@@ -35,9 +38,12 @@ export default {
 
 	name: 'index',
 	props: {
-		areaName: {
-			type: String,
-			default: ''
+		data: {
+			type: Object,
+			default: {
+				name: '',
+				enName: ''
+			}
 		}
 	},
 	data () {
@@ -64,7 +70,15 @@ export default {
 	methods: {
 		change () {
 			this.selectText = this.selectText || '所有'
+		},
+		jump () {
+			this.$router.push({
+				path: `/area/${ this.data.enName }`
+			})
 		}
+	},
+	mounted () {
+
 	}
 }
 </script>
